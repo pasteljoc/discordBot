@@ -29,13 +29,13 @@ async def on_member_remove(member):
 async def hola(ctx):
     await ctx.send(f'hola que hace hola ')
 
-# @client.command()
-# async def onomastico(ctx):
-#     today = date.today()
-#     d = today.strftime("%d")
-#     m = today.strftime("%m")
-#     santo=getNombreSanto(conn,f'D{d}M{m}')
-#     await ctx.send(f'el santoral de hoy saluda a {santo}. Saludos a {santo} de Chile')
+@client.command()
+async def onomastico(ctx):
+    today = date.today()
+    d = today.strftime("%d")
+    m = today.strftime("%m")
+    santo=getNombreSanto(conn,f'D{d}M{m}')
+    await ctx.send(f'el santoral de hoy saluda a {santo}. Saludos a {santo} de Chile')
 
 @client.command()
 async def ping(ctx):
@@ -47,34 +47,34 @@ async def _8ball(ctx,*,question):
     await ctx.send(f'Tú pregunta es {question}\ny tu respuesta es {random.choice(responses)}')
 
 
-# # funciones base datos
-# def create_connection(db_file):
-#     """ create a database connection to a SQLite database """
-#     conn = None
-#     try:
-#         conn = sqlite3.connect(db_file)
-#         print(f'Conectado a sqlite3 v{sqlite3.version}')
-#         return conn
-#     except Error as e:
-#         print(e)
+# funciones base datos
+def create_connection(db_file):
+    """ create a database connection to a SQLite database """
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+        print(f'Conectado a sqlite3 v{sqlite3.version}')
+        return conn
+    except Error as e:
+        print(e)
     
-#     return conn
+    return conn
 
-# def getDiaSanto(conn, nombreSanto):
-#     cur = conn.cursor()
-#     cur.execute("SELECT * FROM santos WHERE nombreSanto=?", (nombreSanto,))
+def getDiaSanto(conn, nombreSanto):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM santos WHERE nombreSanto=?", (nombreSanto,))
 
-#     rows = cur.fetchall()
+    rows = cur.fetchall()
 
-#     return rows
+    return rows
 
-# def getNombreSanto(conn, diaSanto):
-#     cur = conn.cursor()
-#     cur.execute("SELECT santo FROM santos WHERE Codigo=?", (diaSanto,))
+def getNombreSanto(conn, diaSanto):
+    cur = conn.cursor()
+    cur.execute("SELECT santo FROM santos WHERE Codigo=?", (diaSanto,))
 
-#     rows = cur.fetchall()
+    rows = cur.fetchall()
 
-#     return rows[0][0]
+    return rows[0][0]
 
-# conn=create_connection(r"D:\\PersonalFiles\\Documents\Scripts\\Python\\discordBot\\dbBot.db")
+conn=create_connection(r"./dbBot.db")
 client.run('NzA5NTk0MDkxMDgzNjYxMzUy.XroLJg.VMWaz_JnfXshm8XQtTaS3OOOMDg')
