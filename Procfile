@@ -1,0 +1,1 @@
+worker:p python bot.py
