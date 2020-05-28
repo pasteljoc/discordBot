@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 
 import sqlite3
 from sqlite3 import Error
@@ -31,7 +31,7 @@ async def hola(ctx):
 
 @client.command()
 async def hora(ctx):
-    await ctx.send(date.today)
+    await ctx.send(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
 @client.command()
 async def onomastico(ctx):
