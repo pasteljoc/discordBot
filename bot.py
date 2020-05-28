@@ -30,6 +30,10 @@ async def hola(ctx):
     await ctx.send(f'hola que hace hola ')
 
 @client.command()
+async def hora(ctx):
+    await ctx.send(date.today)
+
+@client.command()
 async def onomastico(ctx):
     today = date.today()
     d = today.strftime("%d")
