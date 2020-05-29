@@ -36,7 +36,7 @@ async def hora(ctx):
 
 @client.command()
 async def onomastico(ctx):
-    today = date.today()
+    today =horaChile
     d = today.strftime("%d")
     m = today.strftime("%m")
     santo=getNombreSanto(conn,f'D{d}M{m}')
