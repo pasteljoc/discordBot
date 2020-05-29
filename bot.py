@@ -9,11 +9,12 @@ from discord.ext import commands
 import random
 
 client = commands.Bot(command_prefix='.')
+horaChile=datetime.now()-timedelta(hours=4)
 
 # Comandos del bot
 @client.event
 async def on_ready():
-    print('holaquehace bot')
+    print('eljocBot is online')
 
 @client.event
 async def on_member_join(member):
@@ -31,14 +32,12 @@ async def hola(ctx):
 
 @client.command()
 async def hora(ctx):
-    horaChile=datetime.now()-timedelta(hours=4)
     await ctx.send(horaChile.strftime('%Y-%m-%d %H:%M:%S'))
 
 @client.command()
 async def onomastico(ctx):
-    today =horaChile
-    d = today.strftime("%d")
-    m = today.strftime("%m")
+    d = horaChile.strftime("%d")
+    m = horaChile.strftime("%m")
     santo=getNombreSanto(conn,f'D{d}M{m}')
     await ctx.send(f'el santoral de hoy saluda a {santo}. Saludos a {santo} de Chile')
 
