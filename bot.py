@@ -1,3 +1,5 @@
+import secrets
+
 from datetime import datetime, date, timedelta
 
 import sqlite3
@@ -81,4 +83,4 @@ def getNombreSanto(conn, diaSanto):
     return rows[0][0]
 
 conn=create_connection(r"./dbBot.db")
-client.run('NzA5NTk0MDkxMDgzNjYxMzUy.XroLJg.VMWaz_JnfXshm8XQtTaS3OOOMDg')
+client.run(secrets.discordSecret())
